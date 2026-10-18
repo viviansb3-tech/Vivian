@@ -232,7 +232,7 @@ const commandItems=[
 ];
 function renderCommands(query=''){
   if(!commandResults)return; const term=query.trim().toLowerCase(); const rows=commandItems.filter(x=>(x[0]+' '+x[1]).toLowerCase().includes(term));
-  commandResults.innerHTML=rows.map((x,i)=>`<button class="command-item" data-target="${x[2]}"><span>${String(i+1).padStart(2,'0')}</span><strong>${x[0]}</strong><small>${x[1]}</small><b>↗</b></button>`).join('')||'<div class="command-empty">No matching section.</div>';
+  commandResults.innerHTML=rows.map((x,i)=>`<button class="command-item" data-target="${x[2]}"><span>${String(i+1).padStart(2,'0')}</span><strong>${x[0]}</strong><small>${x[1]}</small></button>`).join('')||'<div class="command-empty">No matching section.</div>';
   $$('.command-item',commandResults).forEach(b=>b.addEventListener('click',()=>{closeCommand();document.getElementById(b.dataset.target)?.scrollIntoView({behavior:reduced?'auto':'smooth'})}));
 }
 function openCommand(){if(!commandPalette)return;commandPalette.classList.add('open');commandPalette.setAttribute('aria-hidden','false');renderCommands();setTimeout(()=>commandSearch?.focus(),20)}
