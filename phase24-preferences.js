@@ -1,4 +1,4 @@
-/* Phase 24 — accessibility preference controller */
+/* Phase 24: accessibility preference controller */
 (function () {
   "use strict";
   var root = document.documentElement;

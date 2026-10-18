@@ -1,4 +1,4 @@
-/* Phase 29 — keyboard command centre */
+/* Phase 29: keyboard command centre */
 (function(){
   "use strict";
   var items=[

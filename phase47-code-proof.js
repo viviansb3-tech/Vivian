@@ -67,7 +67,7 @@
   function dateLabel(value) {
     if (!value) return 'static snapshot';
     const d = new Date(value);
-    if (Number.isNaN(d.getTime())) return '—';
+    if (Number.isNaN(d.getTime())) return ': ';
     return new Intl.DateTimeFormat('en-ZA', {year:'numeric', month:'short', day:'2-digit'}).format(d);
   }
 
@@ -106,7 +106,7 @@
         <small>${escapeHTML(c.label)}</small>
         <p>${escapeHTML(c.copy || item.description || 'Public repository.')}</p>
         <div class="phase47-repo-meta">
-          <span><b>LANGUAGE</b>${escapeHTML(item.language || '—')}</span>
+          <span><b>LANGUAGE</b>${escapeHTML(item.language || ': ')}</span>
           <span><b>UPDATED</b>${escapeHTML(dateLabel(item.updated_at))}</span>
           <span><b>STATUS</b>${isEmpty ? 'shell only' : 'source present'}</span>
         </div>

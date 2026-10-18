@@ -124,7 +124,7 @@ renderLab('pca');
 const caseData={
  bitcoin:{code:'PROJECT_01 / TIME SERIES + FINANCE',title:'ARIMA + GARCH Models for Bitcoin Volatility',intro:'A financial time-series project combining ARIMA forecasting with GARCH volatility modelling to study Bitcoin behaviour.',question:'Model and understand the time-series and volatility structure of Bitcoin data.',method:'ARIMA for conditional mean / forecasting structure; GARCH-family modelling for conditional volatility.',data:'Bitcoin price/return series supplied for the project.'},
  oil:{code:'PROJECT_02 / ECONOMETRICS',title:'Cointegration of Crude Oil vs Brent Oil',intro:'An econometric analysis of the long-run relationship between crude oil and Brent oil price series.',question:'Assess whether the two oil-price series share a stable long-run relationship.',method:'Cointegration analysis with time-series diagnostics.',data:'Crude oil and Brent oil price series.'},
- bigfive:{code:'PROJECT_03 / FACTOR ANALYSIS',title:'Confirmatory Factor Analysis — Big Five Personality Model',intro:'A theory-driven analysis testing whether 25 personality items align with the pre-specified five-factor Big Five structure.',question:'Assess whether item correlations support the hypothesised Agreeableness, Conscientiousness, Extraversion, Neuroticism and Openness structure.',method:'Factor extraction guided by data-driven criteria and theory, rotation, and comparison of largest item loadings with their hypothesised factors.',data:'2,800 respondents; 25 items; six-point response scale.'},
+ bigfive:{code:'PROJECT_03 / FACTOR ANALYSIS',title:'Confirmatory Factor Analysis: Big Five Personality Model',intro:'A theory-driven analysis testing whether 25 personality items align with the pre-specified five-factor Big Five structure.',question:'Assess whether item correlations support the hypothesised Agreeableness, Conscientiousness, Extraversion, Neuroticism and Openness structure.',method:'Factor extraction guided by data-driven criteria and theory, rotation, and comparison of largest item loadings with their hypothesised factors.',data:'2,800 respondents; 25 items; six-point response scale.'},
  cca:{code:'PROJECT_04 / CANONICAL CORRELATION',title:'Fear of Computers × Fear of Statistics',intro:'Canonical correlation analysis examining shared variation between two quantitative-anxiety domains.',question:'Identify reliable canonical dimensions linking fear of computers with fear of statistics and interpret their relationship to the original items.',method:'Canonical correlation analysis across seven computer-fear items and eight statistics-fear items.',data:'2,571 respondents; five-point Likert scale.'}
 };
 const modal=$('#caseModal'); let lastCaseTrigger=null;
@@ -176,7 +176,7 @@ async function github(){
   const render=(user,items,mode)=>{
     status.textContent=`Public profile · ${user.public_repos??0} repositories · ${mode}`;
     stats.innerHTML=[['REPOSITORIES',user.public_repos??0],['FOLLOWERS',user.followers??0],['FOLLOWING',user.following??0],['GISTS',user.public_gists??0]].map(x=>`<div><b>${x[1]}</b><small>${x[0]}</small></div>`).join('');
-    repos.innerHTML=(Array.isArray(items)?items:[]).map(x=>`<article class="repo"><a href="${x.html_url}" target="_blank" rel="noreferrer">${x.name}</a><p>${x.description||'No description supplied.'}</p><small>${x.language||'—'}　★ ${x.stargazers_count||0}　⑂ ${x.forks_count||0}</small></article>`).join('')||'<article class="repo"><p>No public repositories returned.</p></article>';
+    repos.innerHTML=(Array.isArray(items)?items:[]).map(x=>`<article class="repo"><a href="${x.html_url}" target="_blank" rel="noreferrer">${x.name}</a><p>${x.description||'No description supplied.'}</p><small>${x.language||': '}　★ ${x.stargazers_count||0}　⑂ ${x.forks_count||0}</small></article>`).join('')||'<article class="repo"><p>No public repositories returned.</p></article>';
   };
   try{
     const cached=JSON.parse(localStorage.getItem(GH_CACHE)||'null');
@@ -186,7 +186,7 @@ async function github(){
     localStorage.setItem(GH_CACHE,JSON.stringify({ts:Date.now(),user,repos:reposData})); render(user,reposData,'live');
   }catch(error){
     try{const cached=JSON.parse(localStorage.getItem(GH_CACHE)||'null');if(cached){render(cached.user,cached.repos,'cached · offline');return;}}catch(_){/* ignore */}
-    status.textContent='GitHub data unavailable — fallback mode';
+    status.textContent='GitHub data unavailable: fallback mode';
     stats.innerHTML=[['PROFILE','viviansb3-tech'],['REPOSITORY','Vivian'],['MODE','FALLBACK'],['STATUS','UNAVAILABLE']].map(x=>`<div><b>${x[1]}</b><small>${x[0]}</small></div>`).join('');
     repos.innerHTML='<article class="repo"><a href="https://github.com/viviansb3-tech" target="_blank" rel="noreferrer">viviansb3-tech</a><p>Open the GitHub profile to view current confirmed metadata.</p></article>';
   }
@@ -251,9 +251,9 @@ document.addEventListener('keydown',event=>{
 
 if(reduced)document.body.classList.add('reduced');
 
-// Phase 22 — interactive research workflow. This is additive and does not remove existing modules.
+// Phase 22: interactive research workflow. This is additive and does not remove existing modules.
 const workflowStages={
- question:{code:'STAGE_01 / QUESTION',title:'START WITH THE QUESTION.',copy:'Good analysis starts by defining what needs to be understood, measured or predicted. The method follows the question — not the other way around.',tags:['RESEARCH QUESTION','OBJECTIVE','CONTEXT']},
+ question:{code:'STAGE_01 / QUESTION',title:'START WITH THE QUESTION.',copy:'Good analysis starts by defining what needs to be understood, measured or predicted. The method follows the question: not the other way around.',tags:['RESEARCH QUESTION','OBJECTIVE','CONTEXT']},
  data:{code:'STAGE_02 / DATA',title:'UNDERSTAND THE EVIDENCE.',copy:'Inspect the structure, quality and context of the data before modelling. Data cleaning, exploratory analysis and clear variable definitions create the foundation for defensible work.',tags:['DATA QUALITY','EDA','VARIABLES']},
  model:{code:'STAGE_03 / MODEL',title:'CHOOSE THE METHOD.',copy:'Select a method that matches the question and data. Your project experience spans time-series, multivariate, factor, canonical-correlation and spatial approaches.',tags:['ARIMA','GARCH','PCA','FACTOR ANALYSIS','CCA','SPATIAL']},
  validate:{code:'STAGE_04 / VALIDATE',title:'CHALLENGE THE RESULT.',copy:'A useful model needs scrutiny. Check assumptions, structure, reliability and whether the result actually answers the original question. Unsupported claims stay out of the portfolio.',tags:['ASSUMPTIONS','DIAGNOSTICS','RELIABILITY']},
@@ -264,7 +264,7 @@ function renderWorkflow(key){const d=workflowStages[key]||workflowStages.questio
 wfButtons.forEach((b,i)=>{b.addEventListener('click',()=>renderWorkflow(b.dataset.stage));b.addEventListener('keydown',e=>{if(!['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].includes(e.key))return;e.preventDefault();const dir=(e.key==='ArrowRight'||e.key==='ArrowDown')?1:-1;wfButtons[(i+dir+wfButtons.length)%wfButtons.length].focus();renderWorkflow(wfButtons[(i+dir+wfButtons.length)%wfButtons.length].dataset.stage)})});
 renderWorkflow('question');
 
-/* PHASE 37 — premium interaction layer */
+/* PHASE 37: premium interaction layer */
 (() => {
   const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const root = document.documentElement;
@@ -314,7 +314,7 @@ renderWorkflow('question');
 })();
 
 
-// Phase 52.3 — homepage start + navigation flow stability.
+// Phase 52.3: homepage start + navigation flow stability.
 // Prevent browsers from restoring an old scroll position when the root homepage is reopened.
 try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (_) {}
 const phase523StartAtHome = () => {

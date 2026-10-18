@@ -1,4 +1,4 @@
-/* Phase 32 — research dossier tabs */
+/* Phase 32: research dossier tabs */
 (function(){
 "use strict";
 function init(){

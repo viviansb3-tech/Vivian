@@ -1,4 +1,4 @@
-/* Phase 30 — lightweight interface telemetry */
+/* Phase 30: lightweight interface telemetry */
 (function(){
 "use strict";
 function init(){

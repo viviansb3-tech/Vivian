@@ -1,4 +1,4 @@
-/* Phase 23 — Light/Dark theme controller */
+/* Phase 23: Light/Dark theme controller */
 (function () {
   "use strict";
   var root = document.documentElement;

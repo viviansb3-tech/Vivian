@@ -77,7 +77,7 @@
   els.copy?.addEventListener('click', async () => {
     const url=new URL(location.href); url.searchParams.set('view',currentKey()); url.hash='application-mode';
     try { await navigator.clipboard.writeText(url.toString()); els.status.textContent='ROLE-SPECIFIC PORTFOLIO LINK COPIED.'; }
-    catch (_) { els.status.textContent='COPY BLOCKED — USE THE URL IN YOUR ADDRESS BAR.'; }
+    catch (_) { els.status.textContent='COPY BLOCKED: USE THE URL IN YOUR ADDRESS BAR.'; }
     setTimeout(()=>{els.status.textContent='';},2600);
   });
 

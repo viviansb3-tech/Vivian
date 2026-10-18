@@ -64,7 +64,7 @@
         const netlifyConfirmed=/\.netlify\.app$/i.test(location.hostname) || response.headers.has('x-nf-request-id');
         if(response.ok && netlifyConfirmed){
           form.reset();
-          setState('success','Message sent successfully. Thank you — Vivian can reply using the email you provided.');
+          setState('success','Message sent successfully. Thank you: Vivian can reply using the email you provided.');
           track('Contact Form Sent',{intent:v.intent||'unspecified'});
           if(submit) submit.textContent='MESSAGE SENT ✓';
           setTimeout(()=>{if(submit) submit.textContent='SEND MESSAGE →';},2600);

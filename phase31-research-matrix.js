@@ -1,4 +1,4 @@
-/* Phase 31 — research matrix filters */
+/* Phase 31: research matrix filters */
 (function(){
 "use strict";
 function init(){

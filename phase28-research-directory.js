@@ -1,4 +1,4 @@
-/* Phase 28 — research directory search/filter */
+/* Phase 28: research directory search/filter */
 (function(){
   "use strict";
   function init(){
