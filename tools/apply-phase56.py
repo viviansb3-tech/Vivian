@@ -30,7 +30,7 @@ if hero:
     if actions:
         actions.clear()
         ctas = [
-            ('Explore featured work ↗', '#featured-work', 'btn primary'),
+            ('Explore featured work', '#featured-work', 'btn primary'),
             ('View CV', 'assets/vivian-sibanda-cv.pdf', 'btn'),
             ('Start a conversation', '#contact', 'btn'),
         ]

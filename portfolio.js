@@ -251,7 +251,7 @@ const commandItems=[
 ];
 function renderCommands(query=''){
   if(!commandResults)return; const term=query.trim().toLowerCase(); const rows=commandItems.filter(x=>(x[0]+' '+x[1]).toLowerCase().includes(term));
-  commandResults.innerHTML=rows.map((x,i)=>`<button class="command-item" data-target="${x[2]}"><span>${String(i+1).padStart(2,'0')}</span><strong>${x[0]}</strong><small>${x[1]}</small><b>↗</b></button>`).join('')||'<div class="command-empty">No matching section.</div>';
+  commandResults.innerHTML=rows.map((x,i)=>`<button class="command-item" data-target="${x[2]}"><span>${String(i+1).padStart(2,'0')}</span><strong>${x[0]}</strong><small>${x[1]}</small></button>`).join('')||'<div class="command-empty">No matching section.</div>';
   $$('.command-item',commandResults).forEach(b=>b.addEventListener('click',()=>{closeCommand();document.getElementById(b.dataset.target)?.scrollIntoView({behavior:reduced?'auto':'smooth'})}));
 }
 function openCommand(){if(!commandPalette)return;commandPalette.classList.add('open');commandPalette.setAttribute('aria-hidden','false');renderCommands();setTimeout(()=>commandSearch?.focus(),20)}
@@ -1072,7 +1072,7 @@ root.querySelector('#scale-chart').innerHTML=scaleChart();root.querySelector('#s
       const isEmpty = Number(item.size || 0) === 0;
       const category = `${c.category || 'source'} ${isEmpty ? 'placeholder' : 'source'}`.trim();
       const source = safeURL(item.html_url || `https://github.com/${USER}/${encodeURIComponent(item.name)}`);
-      const docs = c.docs ? `<a href="${c.docs}" target="_blank" rel="noreferrer">README ↗</a>` : '';
+      const docs = c.docs ? `<a href="${c.docs}" target="_blank" rel="noreferrer">README</a>` : '';
       const caseLink = c.caseStudy ? `<a class="primary" href="${c.caseStudy}">CASE STUDY →</a>` : '';
       return `<article class="repo phase47-repo-card" data-category="${escapeHTML(category)}" data-search="${escapeHTML(`${item.name} ${c.copy} ${item.language || ''} ${category}`.toLowerCase())}">
         <div class="phase47-repo-top">
@@ -1089,7 +1089,7 @@ root.querySelector('#scale-chart').innerHTML=scaleChart();root.querySelector('#s
           <span><b>UPDATED</b>${escapeHTML(dateLabel(item.updated_at))}</span>
           <span><b>STATUS</b>${isEmpty ? 'shell only' : 'source present'}</span>
         </div>
-        <div class="phase47-repo-actions"><a href="${source}" target="_blank" rel="noreferrer">VIEW SOURCE ↗</a>${docs}${caseLink}</div>
+        <div class="phase47-repo-actions"><a href="${source}" target="_blank" rel="noreferrer">VIEW SOURCE</a>${docs}${caseLink}</div>
       </article>`;
     }).join('');
     applyFilter();
