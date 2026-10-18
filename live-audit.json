@@ -1,0 +1,73 @@
+{
+  "auditedUrl": "http://127.0.0.1:4189/",
+  "auditedAt": "2026-08-17T09:42:17.293Z",
+  "passed": 13,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Homepage HTTP",
+      "ok": true,
+      "detail": "200 http://127.0.0.1:4189/"
+    },
+    {
+      "name": "Canonical URL",
+      "ok": true,
+      "detail": "http://127.0.0.1:4189/"
+    },
+    {
+      "name": "Open Graph URL",
+      "ok": true,
+      "detail": "http://127.0.0.1:4189/"
+    },
+    {
+      "name": "Structured data",
+      "ok": true,
+      "detail": "JSON-LD present"
+    },
+    {
+      "name": "robots.txt",
+      "ok": true,
+      "detail": "200"
+    },
+    {
+      "name": "sitemap.xml",
+      "ok": true,
+      "detail": "200"
+    },
+    {
+      "name": "site.webmanifest",
+      "ok": true,
+      "detail": "200"
+    },
+    {
+      "name": "deployment-meta.json",
+      "ok": true,
+      "detail": "200"
+    },
+    {
+      "name": "release-manifest.json",
+      "ok": true,
+      "detail": "200"
+    },
+    {
+      "name": "application-brief.html",
+      "ok": true,
+      "detail": "200"
+    },
+    {
+      "name": "projects/hotelling-simulation.html",
+      "ok": true,
+      "detail": "200"
+    },
+    {
+      "name": "Sitemap format",
+      "ok": true,
+      "detail": "Absolute URL entries present"
+    },
+    {
+      "name": "Release identity",
+      "ok": true,
+      "detail": "P52-18312436E63F · 67 files"
+    }
+  ]
+}

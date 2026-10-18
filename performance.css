@@ -1,0 +1,18 @@
+/* Performance stability layer — Phase 52 speed pass */
+main>section:nth-of-type(n+5){content-visibility:auto;contain-intrinsic-size:auto 820px}
+img{height:auto}
+@media (max-width:900px),(pointer:coarse){
+  #data-canvas{display:none!important}
+  .section-glow{display:none!important}
+  .glass,.quote,.work-item,.research article,.github,.repo,.cv,.terminal,
+  .phase33-copy,.phase33-equation,.phase33-stats>div,.phase33-scenario-grid article,.phase33-project-block,
+  .phase40-node,.phase40-center,.phase43-case,.phase44-results,.phase45-lens-shell,.phase45-mode-banner,
+  .phase46-shell,.phase51-shell,.phase52-launch-shell,.phase29-command-panel,.phase29-launch-card,
+  .phase30-node,.case-backdrop,.command-backdrop,.phase29-command-backdrop,.work-search input{
+    backdrop-filter:none!important;-webkit-backdrop-filter:none!important
+  }
+  .depth,.float,.btn,.chips button,.tabs button,.palette-trigger,.menu,.dot,.case-open,.contact-card{will-change:auto!important}
+  .glass,.phase43-case,.phase45-lens-shell,.phase46-shell,.phase52-launch-shell{box-shadow:0 14px 36px rgba(0,0,0,.16)!important}
+}
+@media (prefers-reduced-motion:reduce){main>section:nth-of-type(n+5){content-visibility:visible}.section-glow{display:none!important}}
+@media print{main>section{content-visibility:visible!important;contain-intrinsic-size:auto!important}}

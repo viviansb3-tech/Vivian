@@ -1,0 +1,10 @@
+/* Production conversion/contact layer. No external analytics dependency is loaded. */
+.phase49-contact-actions{margin:14px 0 16px;padding:16px 17px;border-radius:18px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.phase49-contact-actions>div:first-child{display:grid;gap:5px}.phase49-contact-actions small{font:700 8px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#71839a}.phase49-contact-actions strong{font:600 12px 'Space Grotesk',sans-serif;color:#dbe7f5;line-height:1.4}
+.phase49-contact-action-buttons{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.phase49-contact-action-buttons .btn{min-height:38px;padding:0 12px;font-size:9px}
+.terminal select{width:100%;margin-top:6px;background:rgba(0,0,0,.15);border:1px solid var(--line);border-radius:10px;padding:11px;color:inherit;font:12px Inter,system-ui,sans-serif;outline:0;color-scheme:dark}
+.terminal select:focus{border-color:rgba(77,163,255,.6)}
+.phase49-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important;margin:0!important;padding:0!important}
+.phase49-form-actions{display:flex;align-items:center;gap:8px;margin:18px}.phase49-form-actions .btn{margin:0;flex:1}.phase49-whatsapp{background:rgba(255,255,255,.035)}
+#form[data-state="sending"] .phase49-form-actions{opacity:.72;pointer-events:none}#form[data-state="success"]{border-color:rgba(98,215,165,.35)}#form[data-state="error"]{border-color:rgba(255,154,154,.35)}
+@media(max-width:720px){.phase49-contact-actions{align-items:flex-start;flex-direction:column}.phase49-contact-action-buttons{width:100%;justify-content:stretch}.phase49-contact-action-buttons .btn{flex:1}.phase49-form-actions{flex-direction:column}.phase49-form-actions .btn{width:100%}}

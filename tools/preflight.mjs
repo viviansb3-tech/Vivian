@@ -1,0 +1,30 @@
+import { readFile, stat } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const target = path.resolve(root, process.argv[2] || 'dist');
+const issues = [];
+const warnings = [];
+const exists = async rel => { try { await stat(path.join(target, rel)); return true; } catch { return false; } };
+const required = ['index.html','404.html','application-brief.html','robots.txt','site.webmanifest','deployment-meta.json','release-manifest.json','assets/vivian-sibanda-cv.pdf','assets/vivian-sibanda.vcf'];
+for (const item of required) if (!await exists(item)) issues.push(`Missing ${item}`);
+const deploy = JSON.parse(await readFile(path.join(target,'deployment-meta.json'),'utf8'));
+const release = JSON.parse(await readFile(path.join(target,'release-manifest.json'),'utf8'));
+const home = await readFile(path.join(target,'index.html'),'utf8');
+if (!/<h1\b/i.test(home) || !/id="contact"/.test(home)) issues.push('Landing page introduction or contact section is missing.');
+if (!/landing\.css/i.test(home) || !await exists('landing.css')) issues.push('Landing page stylesheet is missing.');
+if (!await exists('projects.html') || !await exists('explorer.html')) issues.push('Project collection or research explorer is missing.');
+if (!/https:\/\/github\.com\/viviansb3-tech/i.test(home)) issues.push('GitHub professional link is missing.');
+if (!/linkedin\.com\/in\/sibanda-vivian/i.test(home)) issues.push('LinkedIn professional link is missing.');
+if (deploy.production && !deploy.canonicalBaseUrl) issues.push('Production build has no canonical base URL.');
+if (!deploy.production && deploy.canonicalBaseUrl) warnings.push('Preview/local build has a canonical URL; confirm this is intentional.');
+if (release.phase !== 57 || !release.releaseId || !release.fingerprint) issues.push('Release manifest identity is incomplete.');
+console.log('\nPhase 57 launch preflight');
+console.log('-------------------------');
+console.log(`Mode: ${deploy.production ? 'PRODUCTION' : 'LAUNCH CANDIDATE'} · Provider: ${deploy.provider}`);
+console.log(`Release: ${release.releaseId}`);
+console.log(`Canonical: ${deploy.canonicalBaseUrl || 'assigned at deployment'}`);
+for (const warning of warnings) console.log(`WARN  ${warning}`);
+if (issues.length) { for (const issue of issues) console.error(`FAIL  ${issue}`); process.exit(1); }
+console.log('PASS — release candidate has the required professional, deployment and verification surfaces.');

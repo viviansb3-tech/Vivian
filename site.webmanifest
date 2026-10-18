@@ -1,0 +1,18 @@
+{
+  "name": "Vivian Sibanda \u2014 Applied Statistics & Data Portfolio",
+  "short_name": "Vivian Sibanda",
+  "description": "Applied statistics, data analysis, research and software portfolio of Vivian Sibanda.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f3ed",
+  "theme_color": "#f5f3ed",
+  "lang": "en-ZA",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

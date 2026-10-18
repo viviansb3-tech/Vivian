@@ -1,0 +1,286 @@
+/* Phase 52 stability patch — theme visibility + section integrity support.
+   Loaded LAST so earlier phase styles cannot accidentally hide text/surfaces. */
+
+/* Keep legacy/base variables and newer theme variables in sync. */
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#05070b;
+  --text:#f4f7fb;
+  --muted:#9eabbc;
+  --line:rgba(255,255,255,.14);
+  --blue:#55a9ff;
+  --cyan:#74e7ff;
+  --theme-bg:#05070b;
+  --theme-surface:rgba(255,255,255,.055);
+  --theme-surface-strong:rgba(255,255,255,.09);
+  --theme-text:#f7f9fc;
+  --theme-muted:#a8b4c5;
+  --theme-border:rgba(255,255,255,.14);
+  --theme-blue:#55a9ff;
+  --theme-shadow:rgba(0,0,0,.32);
+}
+html[data-theme="light"]{
+  color-scheme:light;
+  --bg:#f4f7fb;
+  --text:#101827;
+  --muted:#536174;
+  --line:rgba(16,24,39,.14);
+  --blue:#1769d2;
+  --cyan:#007f98;
+  --theme-bg:#f4f7fb;
+  --theme-surface:rgba(255,255,255,.76);
+  --theme-surface-strong:rgba(255,255,255,.92);
+  --theme-text:#101827;
+  --theme-muted:#536174;
+  --theme-border:rgba(16,24,39,.14);
+  --theme-blue:#1769d2;
+  --theme-shadow:rgba(28,45,70,.14);
+}
+
+html[data-theme="dark"] body,
+html[data-theme="light"] body{color:var(--text);background-color:var(--bg)}
+
+/* Shared surfaces */
+html[data-theme="light"] .glass,
+html[data-theme="light"] .glass-card,
+html[data-theme="light"] .glass-panel,
+html[data-theme="light"] .panel,
+html[data-theme="light"] .card,
+html[data-theme="light"] .quote,
+html[data-theme="light"] .phase24-accessibility-inner,
+html[data-theme="light"] .phase28-project,
+html[data-theme="light"] .phase29-launch-card,
+html[data-theme="light"] .phase31-matrix-item,
+html[data-theme="light"] .phase32-dossier-panel,
+html[data-theme="light"] .phase33-copy,
+html[data-theme="light"] .phase33-equation,
+html[data-theme="light"] .phase33-stats>div,
+html[data-theme="light"] .phase33-scenario-grid article,
+html[data-theme="light"] .phase40-detail,
+html[data-theme="light"] .phase41-shell,
+html[data-theme="light"] .phase42-shell,
+html[data-theme="light"] .phase44-shell,
+html[data-theme="light"] .phase47-proof-shell,
+html[data-theme="light"] .phase47-source-proof,
+html[data-theme="light"] .phase49-contact-actions{
+  background:var(--theme-surface)!important;
+  border-color:var(--theme-border)!important;
+  color:var(--theme-text)!important;
+  box-shadow:0 18px 55px var(--theme-shadow);
+}
+
+/* Generic text: late phase CSS previously reintroduced dark-theme text colors. */
+html[data-theme="light"] p,
+html[data-theme="light"] .lead,
+html[data-theme="light"] .muted,
+html[data-theme="light"] small,
+html[data-theme="light"] .eyebrow,
+html[data-theme="light"] .kicker,
+html[data-theme="light"] .phase40-head p,
+html[data-theme="light"] .phase40-detail p,
+html[data-theme="light"] .phase40-timeline-item span,
+html[data-theme="light"] .phase41-copy,
+html[data-theme="light"] .phase42-copy,
+html[data-theme="light"] .phase43-case-study-note p,
+html[data-theme="light"] .phase44-copy,
+html[data-theme="light"] .phase47-proof-head p,
+html[data-theme="light"] .phase47-source-proof p,
+html[data-theme="light"] .phase47-repo-note,
+html[data-theme="light"] .phase49-contact-actions small,
+html[data-theme="light"] .phase51-intro p,
+html[data-theme="light"] .phase51-signal span,
+html[data-theme="light"] .phase52-launch-intro p,
+html[data-theme="light"] .phase52-launch-card small,
+html[data-theme="light"] .phase52-launch-card>span{
+  color:var(--theme-muted)!important;
+}
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4,
+html[data-theme="light"] h5,
+html[data-theme="light"] h6,
+html[data-theme="light"] blockquote,
+html[data-theme="light"] .copy strong,
+html[data-theme="light"] .phase49-contact-actions strong{
+  color:var(--theme-text)!important;
+}
+
+/* Navigation and common controls */
+html[data-theme="light"] nav{background:rgba(255,255,255,.86)!important;border-color:var(--theme-border)!important;box-shadow:0 14px 45px rgba(28,45,70,.12)!important}
+html[data-theme="light"] .brand,
+html[data-theme="light"] .links a,
+html[data-theme="light"] .menu,
+html[data-theme="light"] .palette-trigger,
+html[data-theme="light"] .btn:not(.primary),
+html[data-theme="light"] .theme-toggle,
+html[data-theme="light"] .chips button,
+html[data-theme="light"] .tabs button,
+html[data-theme="light"] .phase40-filter,
+html[data-theme="light"] .phase28-filter,
+html[data-theme="light"] .phase31-filter,
+html[data-theme="light"] .phase32-dossier-tab{
+  color:var(--theme-text)!important;
+}
+html[data-theme="light"] .links a:hover{color:var(--theme-blue)!important}
+html[data-theme="light"] .brand em{color:var(--theme-muted)!important}
+html[data-theme="light"] .btn:not(.primary),
+html[data-theme="light"] .chips button,
+html[data-theme="light"] .tabs button,
+html[data-theme="light"] .phase40-filter,
+html[data-theme="light"] .phase28-filter,
+html[data-theme="light"] .phase31-filter,
+html[data-theme="light"] .phase32-dossier-tab{
+  background:rgba(255,255,255,.62)!important;
+  border-color:var(--theme-border)!important;
+}
+html[data-theme="light"] .btn.primary,
+html[data-theme="light"] .phase28-filter.is-active{
+  color:#06101c!important;
+}
+
+/* Outlined display typography needs a dark stroke in light mode. */
+html[data-theme="light"] h1 span:last-child,
+html[data-theme="light"] .display i,
+html[data-theme="light"] footer>div:first-child i{
+  color:transparent!important;
+  -webkit-text-stroke:1px rgba(16,24,39,.58)!important;
+}
+
+/* Philosophy section */
+.philosophy{isolation:isolate}
+html[data-theme="light"] .quote{background:linear-gradient(145deg,rgba(255,255,255,.9),rgba(240,245,252,.78))!important}
+html[data-theme="light"] .quote footer{color:var(--theme-text)!important}
+html[data-theme="light"] .quote footer small{color:var(--theme-muted)!important}
+html[data-theme="light"] .data-flow{border-color:var(--theme-border)!important;color:var(--theme-text)!important}
+html[data-theme="light"] .data-flow b{color:var(--theme-blue)!important;opacity:.8}
+
+/* Section immediately after Philosophy — accessibility / research directory. */
+.phase24-accessibility,
+.phase28-research-directory,
+.phase37-archive,
+.phase33-honours{position:relative;z-index:1;clear:both}
+html[data-theme="light"] .phase24-pref-btn{background:var(--theme-surface-strong)!important;color:var(--theme-text)!important;border-color:var(--theme-border)!important}
+html[data-theme="light"] .phase28-search input,
+html[data-theme="light"] .work-search input,
+html[data-theme="light"] .phase47-repo-search input{
+  background:rgba(255,255,255,.82)!important;
+  color:var(--theme-text)!important;
+  border-color:var(--theme-border)!important;
+}
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder{color:#718096!important;opacity:1}
+
+/* Research intelligence */
+html[data-theme="light"] #research-intelligence{border-color:var(--theme-border)!important}
+html[data-theme="light"] .phase40-map{
+  background:radial-gradient(circle at 50% 50%,rgba(23,105,210,.08),transparent 52%),rgba(255,255,255,.52)!important;
+  border-color:var(--theme-border)!important;
+}
+html[data-theme="light"] .phase40-map:before,
+html[data-theme="light"] .phase40-map:after{border-color:rgba(16,24,39,.12)!important}
+html[data-theme="light"] .phase40-node{
+  background:rgba(255,255,255,.9)!important;
+  border-color:var(--theme-border)!important;
+  color:var(--theme-text)!important;
+  box-shadow:0 12px 28px rgba(28,45,70,.08);
+}
+html[data-theme="light"] .phase40-node small,
+html[data-theme="light"] .phase40-node span{color:var(--theme-muted)!important;opacity:1!important}
+html[data-theme="light"] .phase40-center,
+html[data-theme="light"] .phase40-timeline-item{
+  background:rgba(255,255,255,.72)!important;
+  border-color:var(--theme-border)!important;
+  color:var(--theme-text)!important;
+}
+
+/* Honours / simulation feature */
+html[data-theme="light"] .phase33-copy,
+html[data-theme="light"] .phase33-equation,
+html[data-theme="light"] .phase33-stats>div,
+html[data-theme="light"] .phase33-scenario-grid article,
+html[data-theme="light"] .phase33-project-block{
+  background:rgba(255,255,255,.72)!important;
+  border-color:var(--theme-border)!important;
+}
+html[data-theme="light"] .phase33-node{border-color:var(--theme-border)!important;color:var(--theme-text)!important}
+html[data-theme="light"] .phase33-node.phase33-accent{color:var(--theme-text)!important;background:rgba(23,105,210,.09)!important}
+html[data-theme="light"] .phase33-pipeline,
+html[data-theme="light"] .phase33-pipeline>div{border-color:var(--theme-border)!important}
+
+/* Lab / modal / command surfaces */
+html[data-theme="light"] .lab{background:linear-gradient(rgba(236,242,249,.55),rgba(244,247,251,.96))!important;border-color:var(--theme-border)!important}
+html[data-theme="light"] .labbox,
+html[data-theme="light"] .case-dialog,
+html[data-theme="light"] .command-dialog,
+html[data-theme="light"] .phase29-command-panel{
+  background:rgba(255,255,255,.94)!important;
+  color:var(--theme-text)!important;
+  border-color:var(--theme-border)!important;
+}
+html[data-theme="light"] .tabs button.active{color:var(--theme-text)!important;background:rgba(23,105,210,.1)!important}
+
+/* Forms */
+html[data-theme="light"] .terminal input,
+html[data-theme="light"] .terminal textarea,
+html[data-theme="light"] .terminal select{
+  color-scheme:light!important;
+  background:rgba(255,255,255,.84)!important;
+  color:var(--theme-text)!important;
+  border-color:var(--theme-border)!important;
+}
+html[data-theme="dark"] .terminal input,
+html[data-theme="dark"] .terminal textarea,
+html[data-theme="dark"] .terminal select{
+  color-scheme:dark!important;
+  color:var(--theme-text)!important;
+}
+
+/* Source proof / late-phase surfaces */
+html[data-theme="light"] .phase47-proof-list b,
+html[data-theme="light"] .phase47-source-proof .proof-actions a:first-child{color:var(--theme-text)!important}
+html[data-theme="light"] .phase47-proof-list span{color:var(--theme-muted)!important}
+html[data-theme="light"] .phase47-source-proof .proof-actions a{color:var(--theme-blue)!important}
+
+/* Deployment + release status were hard-coded dark in Phase 51/52. */
+html[data-theme="light"] .phase51-deployment{background:transparent!important;color:var(--theme-text)!important}
+html[data-theme="light"] .phase51-shell,
+html[data-theme="light"] .phase52-launch-shell{
+  background:linear-gradient(145deg,rgba(255,255,255,.9),rgba(238,244,252,.74))!important;
+  border-color:var(--theme-border)!important;
+  box-shadow:0 18px 55px rgba(28,45,70,.1)!important;
+}
+html[data-theme="light"] .phase51-signal,
+html[data-theme="light"] .phase52-launch-card{
+  background:rgba(255,255,255,.7)!important;
+  border-color:var(--theme-border)!important;
+  color:var(--theme-text)!important;
+}
+html[data-theme="light"] .phase51-signal b,
+html[data-theme="light"] .phase52-launch-card b{color:var(--theme-text)!important}
+
+/* Inline case-study teaser from Phase 43. */
+html[data-theme="light"] .phase43-case-study-note{
+  background:rgba(255,255,255,.78)!important;
+  border-color:var(--theme-border)!important;
+  color:var(--theme-text)!important;
+}
+
+/* Mobile navigation inherits theme instead of forcing dark glass. */
+@media(max-width:900px){
+  html[data-theme="light"] .links.mobile-open{
+    background:rgba(255,255,255,.96)!important;
+    border-color:var(--theme-border)!important;
+    box-shadow:0 18px 45px rgba(28,45,70,.14);
+  }
+  html[data-theme="dark"] .links.mobile-open{
+    background:rgba(10,14,22,.96)!important;
+  }
+}
+
+/* Defensive visibility: animations must never make content permanently inaccessible
+   when reduced motion is enabled. */
+html.phase24-reduced-motion .reveal{opacity:1!important;transform:none!important}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1!important;transform:none!important}
+}

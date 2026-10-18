@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Cointegration &amp; Bitcoin Volatility — Vivian Sibanda</title>
+<meta content="Vivian Sibanda's Cointegration of Brent and WTI crude oil and Bitcoin ARIMA-GARCH time-series analysis." name="description"/>
+<script data-project-theme-bootstrap="">try{document.documentElement.dataset.theme=localStorage.getItem('vivian-theme')||document.documentElement.dataset.theme||'dark'}catch(e){document.documentElement.dataset.theme=document.documentElement.dataset.theme||'dark'}</script><link href="../styles.css" rel="stylesheet"/>
+<style>
+:root{--blue:#55a9ff;--cyan:#62e6e0;--bg:#05070a;--muted:#a8b2c2}
+body{margin:0;background:radial-gradient(circle at 15% 10%,rgba(85,169,255,.12),transparent 30%),radial-gradient(circle at 85% 30%,rgba(98,230,224,.08),transparent 28%),var(--bg);color:#f7f9fc;font-family:Inter,system-ui,sans-serif}
+.flow{max-width:1180px;margin:auto;padding:7rem 1.25rem 5rem}.top{display:flex;justify-content:space-between;align-items:center;gap:1rem}.back{color:var(--blue);text-decoration:none}.eyebrow{letter-spacing:.16em;font-size:.72rem;color:var(--blue);font-weight:800}.hero{min-height:65vh;display:grid;place-items:center;text-align:center}.hero h1{font-size:clamp(3rem,9vw,8rem);line-height:.86;margin:.6rem 0 1.2rem;letter-spacing:-.06em}.hero p{max-width:780px;margin:auto;color:var(--muted);font-size:1.1rem;line-height:1.8}.glass{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.13);border-radius:30px;padding:clamp(1.4rem,3vw,3rem);backdrop-filter:blur(24px);box-shadow:0 25px 80px rgba(0,0,0,.3)}.flowline{display:grid;grid-template-columns:80px 1fr;gap:1.5rem;margin:2rem 0}.num{width:58px;height:58px;border:1px solid rgba(85,169,255,.5);border-radius:50%;display:grid;place-items:center;color:var(--blue);font-weight:800}.step h2{font-size:clamp(1.7rem,4vw,3rem);margin:.1rem 0 .7rem}.step p{color:var(--muted);line-height:1.75}.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.5rem}.fact{padding:1.2rem;border:1px solid rgba(255,255,255,.1);border-radius:20px;background:rgba(255,255,255,.035)}.fact b{display:block;font-size:1.7rem}.fact small{color:var(--muted)}.chart{height:180px;position:relative;overflow:hidden;border-radius:20px;background:linear-gradient(180deg,rgba(85,169,255,.08),transparent);margin-top:1.2rem}.chart svg{width:100%;height:100%}.line{fill:none;stroke:var(--blue);stroke-width:3}.line2{fill:none;stroke:var(--cyan);stroke-width:3}.result{border-left:3px solid var(--blue);padding-left:1rem;margin-top:1.2rem}.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}.btn{display:inline-flex;padding:.85rem 1.1rem;border-radius:999px;border:1px solid rgba(255,255,255,.15);text-decoration:none;color:inherit;background:rgba(255,255,255,.06)}.btn.primary{background:var(--blue);color:#04101d;border-color:var(--blue);font-weight:800}@media(max-width:760px){.flowline{grid-template-columns:1fr}.facts{grid-template-columns:repeat(2,1fr)}.top{align-items:flex-start}.hero{text-align:left}.hero p{margin:0}} 
+html[data-theme="light"] body{background:#f4f7fb;color:#101827}.theme{position:fixed;right:1rem;top:1rem;z-index:5}.theme button{padding:.65rem 1rem;border-radius:999px;border:1px solid rgba(16,24,39,.15);background:rgba(255,255,255,.7);cursor:pointer}
+</style>
+<meta content="dark light" name="color-scheme"/><meta content="#05070b" name="theme-color"/><link href="../phase43-case-studies.css" rel="stylesheet"/><link href="../project-pages.css" rel="stylesheet"/><link href="../mobile-reliability.css" rel="stylesheet"/></head>
+<body class="project-detail-page"><div aria-label="Project navigation" class="project-nav" role="navigation"><div class="project-nav__inner"><a class="project-nav__brand" href="../index.html#work"><i aria-hidden="true"></i><span>Vivian Sibanda / Portfolio</span><b>PROJECT</b></a><div class="project-nav__actions"><a class="project-nav__link" href="../projects.html">ALL WORK</a><button aria-pressed="false" class="project-theme-toggle" id="project-theme-toggle" type="button"><span aria-hidden="true">◐</span> <span data-theme-label="">LIGHT</span></button></div></div></div>
+<div class="theme"><button id="themeBtn" type="button">☼ LIGHT</button></div>
+<main class="flow">
+<div class="top"><a class="back" href="../index.html#work">← BACK TO SELECTED WORK</a><span class="eyebrow">RESEARCH CASE STUDY · TIME SERIES</span></div>
+<section class="hero">
+<div>
+<span class="eyebrow">COINTEGRATION + BITCOIN VOLATILITY</span>
+<h1>MARKETS<br/>IN MOTION.</h1>
+<p>A combined time-series study investigating the long-run equilibrium relationship between Brent and WTI crude oil, alongside Bitcoin price behaviour and volatility from January 2015 to 22 May 2026.</p>
+<div class="facts">
+<div class="fact"><b>2015–2026</b><small>BITCOIN STUDY PERIOD</small></div>
+<div class="fact"><b>ARIMA</b><small>MEAN DYNAMICS</small></div>
+<div class="fact"><b>EGARCH</b><small>VOLATILITY MODEL</small></div>
+<div class="fact"><b>ECM</b><small>OIL DYNAMICS</small></div>
+</div>
+</div>
+</section>
+<section class="glass flowline"><div class="num">01</div><div class="step"><span class="eyebrow">QUESTION</span><h2>What happens beneath the price series?</h2><p>The study asks whether Brent and WTI share a long-run equilibrium relationship, while examining trends, non-stationarity, forecasting behaviour, volatility clustering and heteroskedasticity in Bitcoin and oil-price returns.</p></div></section>
+<section class="glass flowline"><div class="num">02</div><div class="step"><span class="eyebrow">DATA</span><h2>Three financial series. Different behaviours.</h2><p>The analysis compares Bitcoin, Brent crude oil and WTI crude oil. The supplied project report notes that Bitcoin has a different distribution, while Brent and crude oil show the same distribution. Bitcoin returns also display volatility clustering.</p><div class="chart"><svg preserveaspectratio="none" viewbox="0 0 900 180"><polyline class="line" points="0,135 55,120 110,142 165,92 220,112 275,62 330,95 385,45 440,86 495,55 550,120 605,72 660,112 715,48 770,92 825,30 900,65"></polyline><polyline class="line2" points="0,118 55,108 110,112 165,90 220,95 275,82 330,90 385,68 440,80 495,63 550,74 605,58 660,67 715,50 770,58 825,44 900,50"></polyline></svg></div></div></section>
+<section class="glass flowline"><div class="num">03</div><div class="step"><span class="eyebrow">MODELLING · BITCOIN</span><h2>ARIMA → ARCH → EGARCH</h2><p>The supplied report states that Bitcoin supports AR(1) and MA(1) behaviour, with ARMA(1,1) suggesting underfitting or model instability. ACF and PACF of returns then motivate GARCH-family modelling.</p><div class="result"><strong>Selected volatility model:</strong> EGARCH, reported as having the lowest AIC and BIC among the fitted volatility models.</div></div></section>
+<section class="glass flowline"><div class="num">04</div><div class="step"><span class="eyebrow">MODELLING · OIL</span><h2>Cointegration → ECM</h2><p>The oil analysis addresses the risk of spurious regression using the Engle–Granger framework, then models the long-run equilibrium and short-run dynamics with an Error Correction Model.</p><div class="result"><strong>Estimated long-run expression:</strong> Brent̂<sub>t</sub> = 1.6169 + 1.0469 WTÎ<sub>t</sub></div><div class="result"><strong>ECM adjustment:</strong> the reported coefficient on ECT<sub>t−1</sub> is −0.508197, indicating an adjustment toward the long-run relationship after disequilibrium.</div></div></section>
+<section class="glass flowline"><div class="num">05</div><div class="step"><span class="eyebrow">INTERPRETATION</span><h2>Why the models matter</h2><p>The report concludes that Bitcoin volatility requires asymmetric modelling: the EGARCH result captures a leverage effect, with bad news producing stronger reactions. For oil, the findings support interconnected markets with long-run equilibrium and short-run dynamics.</p></div></section>
+<section class="glass flowline"><div class="num">06</div><div class="step"><span class="eyebrow">CONCLUSION</span><h2>From price movements to structure.</h2><p>This project demonstrates a workflow from raw financial time series through distributional inspection, stationarity questions, model selection, volatility modelling and cointegration-based interpretation.</p><div class="cta"><a class="btn primary" href="../index.html#work">← VIEW ALL PROJECTS</a><a class="btn" href="../index.html#contact">DISCUSS THE PROJECT →</a></div></div></section>
+</main>
+<script>
+(function(){
+ const root=document.documentElement, b=document.getElementById('themeBtn');
+ let t=localStorage.getItem('vivian-theme')||'dark';
+ root.dataset.theme=t;
+ function sync(){b.textContent=root.dataset.theme==='light'?'☾ DARK':'☼ LIGHT'}
+ b.onclick=()=>{root.dataset.theme=root.dataset.theme==='light'?'dark':'light';localStorage.setItem('vivian-theme',root.dataset.theme);sync()};
+ sync();
+})();
+</script>
+<a class="project-crosslink" data-phase55="" href="netcare-ppc-cointegration-garch.html"><span><strong>RELATED FINANCIAL CASE</strong><br/>Compare this Bitcoin/Brent/WTI workflow with the report-backed Netcare–PPC cointegration and Netcare GJR-GARCH analysis.</span><b>OPEN CASE →</b></a><section aria-labelledby="phase43-title" class="phase43-case">
+<div class="phase43-head"><div><div class="phase43-kicker">EVIDENCE-LED / PROJECT CASE STUDY</div><h2 id="phase43-title">From question to evidence</h2></div><div class="phase43-status">EVIDENCE-AWARE PRESENTATION</div></div>
+<p class="phase43-lead">This case study reorganises the project into a research-ready narrative: <strong>question → data/scope → methodology → analysis → interpretation</strong>. It keeps documented facts separate from values that require the underlying output.</p>
+<div class="phase43-grid"><div class="phase43-metric"><b>Bitcoin</b><span>asset</span></div><div class="phase43-metric"><b>Brent / WTI</b><span>energy series</span></div><div class="phase43-metric"><b>ARIMA / GARCH</b><span>models</span></div><div class="phase43-metric"><b>Cointegration</b><span>long-run structure</span></div></div>
+<div class="phase43-details">
+<article class="phase43-panel"><h3>RESEARCH QUESTION</h3><p>How can long-run relationships and volatility be studied across financial time series?</p></article>
+<article class="phase43-panel"><h3>METHODS / TECHNIQUES</h3><ul><li>Stationarity testing</li><li>Cointegration</li><li>ARIMA</li><li>GARCH</li><li>Volatility analysis</li></ul></article>
+<article class="phase43-panel"><h3>ANALYTICAL WORKFLOW</h3><p>Define the research objective, establish the data structure, inspect assumptions and diagnostics, fit or compute the selected method, then communicate the result in context.</p></article>
+<article class="phase43-panel"><h3>INTERPRETATION STANDARD</h3><p>Interpretation should connect the numerical output back to the research question. Model fit, diagnostics, uncertainty and limitations belong alongside the headline result.</p></article>
+</div>
+<div class="phase43-note">The portfolio records Bitcoin, Brent and WTI work with cointegration and time-series volatility methods. Numerical model estimates should be read from the original analysis output.</div>
+</section>
+<div class="project-page-end"><span>VIVIAN SIBANDA · PROJECT CASE STUDY</span><a href="../index.html#work">← RETURN TO PORTFOLIO</a></div><script defer="" src="../project-pages.js"></script></body>
+</html>

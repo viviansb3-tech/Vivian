@@ -1,0 +1,18 @@
+{
+  "name": "vivian-sibanda-portfolio",
+  "private": true,
+  "version": "57.0.0",
+  "description": "Minimal portfolio landing page with selected work, a complete project collection and preserved research explorer.",
+  "scripts": {
+    "build": "node tools/build-release.mjs && node tools/url-intelligence.mjs dist && node tools/release-manifest.mjs dist",
+    "qa": "node tools/qa.mjs .",
+    "qa:dist": "node tools/qa.mjs dist && node tools/qa-mobile.mjs dist && node tools/qa-deployment.mjs dist && node tools/qa-release.mjs dist && node tools/preflight.mjs dist",
+    "check": "npm run build && npm run qa:dist",
+    "audit:live": "node tools/audit-live.mjs",
+    "qa:deployment": "node tools/qa-deployment.mjs dist",
+    "release": "npm run build && npm run qa:dist",
+    "verify:release": "node tools/qa-release.mjs dist",
+    "preflight": "node tools/preflight.mjs dist",
+    "qa:mobile": "node tools/qa-mobile.mjs dist"
+  }
+}
